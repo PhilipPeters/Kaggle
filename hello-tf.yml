@@ -1,0 +1,6 @@
+name: hello-tf
+dependencies:  
+- python=3.6  
+- jupyter  
+- ipython  
+- pandas
