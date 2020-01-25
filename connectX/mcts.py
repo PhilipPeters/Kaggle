@@ -64,10 +64,10 @@ C = 1.4
 
 b2 = Board()
 
-def POLICY(state):
+def POLICY(state, board):
   return basic_policy(board_base(state), board.current_player(state))
 
-def VALUE(state):
+def VALUE(state, board):
   return basic_value(board_base(state), board.current_player(state))
 
 
@@ -188,9 +188,9 @@ class MonteCarlo2(object):
             else:
                 # Otherwise, just make an arbitrary decision.
                 """Do we want to set the leaf_state before or after??????????"""
-                move, state = board.next_state(state, policy_choice(state))
+                move, state = self.board.next_state(state, policy_choice(state, self.board))
                 self.leaf_state = state
-                self.leaf_value = value_function(state)
+                self.leaf_value = value_function(state, self.board)
 
             states_copy.append(state)
 
@@ -211,7 +211,7 @@ class MonteCarlo2(object):
                 if self.leaf_state == 'empty':
                     print('weird')
                     self.leaf_state = state
-                    self.leaf_value = value_function(state)
+                    self.leaf_value = value_function(state, self.board)
                 break
 
         for player, state in visited_states:
