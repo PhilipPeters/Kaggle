@@ -1,4 +1,4 @@
-# Kaggle
+# Kaggle connectX
 
 This is the Kaggle code for the project 'connectX', concerned with coming up with a 'bot' that can play connect 4 (very well).
 My approach uses a large CNN to build policy functions and value functions for the state of the board (using the REINFORCE algorithm).
